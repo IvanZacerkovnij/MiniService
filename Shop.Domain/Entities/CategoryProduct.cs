@@ -7,11 +7,12 @@ namespace Shop.Domain.Entities;
 [PrimaryKey(nameof(CategoryId), nameof(ProductId))]
 public class CategoryProduct
 {
+    [ForeignKey(nameof(Category))]
     public int? CategoryId { get; set; }
-    [ForeignKey("CategoryId")]
     public Categories? Category { get; set; }
+    
+    [ForeignKey(nameof(Product))]
     public int? ProductId { get; set; }
-    [ForeignKey(nameof(ProductId))]
     public Product? Product { get; set; }
     
     [Range(0, int.MaxValue)]
