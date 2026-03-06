@@ -27,14 +27,27 @@ class Program
         if (context.Database.CanConnect())
         {
             Console.WriteLine("Пiдключення до БД встановлено");
-            User user = new User();
-            user.Name = "Alex";
-            user.Surname = "Smith";
-            user.Email = "alex@gmail.com";
-            user.Role = UserRole.ADMIN;
-            user.HashPassword = BCrypt.Net.BCrypt.EnhancedHashPassword("qwerty");
-            context.Users.Add(user);
-            context.SaveChanges();
+            // var product = new Product()
+            // {
+            //     Name = "Морозиво",
+            //     Price = 9.99m,
+            //     CreatedAt =  DateTime.Now,
+            // };
+            // var category = new Categories()
+            // {
+            //     Name = "Солодощі",
+            //     CreatedAt = DateTime.Now
+            // };
+            // var categoryProduct = new CategoryProduct()
+            // {
+            //     ProductId = 3,
+            //     CategoryId = 1,
+            //     Store = 20
+            // };
+            // context.Categories.Add(category);
+            // context.CategoryProducts.Add(categoryProduct);
+            // context.Products.Add(product);
+            // context.SaveChanges();
         }
         else
         {
