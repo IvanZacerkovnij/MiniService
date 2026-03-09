@@ -7,6 +7,7 @@ public class Product
     public decimal Price { get; set; }
     public DateTime CreatedAt { get; set; }
     public int CategoryId { get; set; }
-    public Categories? Category { get; set; }
+    
+    public ICollection<CategoryProduct> CategoryProducts { get; set; } = new List<CategoryProduct>();
     
 }

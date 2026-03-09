@@ -5,5 +5,6 @@ public class Categories
     public int Id { get; set; }
     public string Name { get; set; } = string.Empty;
     public DateTime CreatedAt { get; set; }
-    public ICollection<Product> Products { get; set; } = new List<Product>();
+    
+    public ICollection<CategoryProduct> CategoryProducts { get; set; } = new List<CategoryProduct>();
 }
