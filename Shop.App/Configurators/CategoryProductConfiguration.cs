@@ -18,6 +18,10 @@ public class CategoryProductConfiguration : IEntityTypeConfiguration<CategoryPro
             .HasOne(cp => cp.Category)
             .WithMany(c => c.CategoryProducts)
             .HasForeignKey(cp => cp.CategoryId);
+        
+        builder
+            .ToTable(t => 
+                t.HasCheckConstraint("CK_Store", "[Store] >= 0"));
 
     }
 }

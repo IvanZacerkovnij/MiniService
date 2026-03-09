@@ -11,4 +11,5 @@ public class Order
     public OrderStatus Status { get; set; }
 
     public User User { get; set; } = null!;
+    public ICollection<OrderItem> OrderItems { get; set; } = new List<OrderItem>();
 }
