@@ -21,7 +21,7 @@ public class CategoryProductConfiguration : IEntityTypeConfiguration<CategoryPro
         
         builder
             .ToTable(t => 
-                t.HasCheckConstraint("CK_Store", "[Store] >= 0"));
+                t.HasCheckConstraint("CK_Store", "Store >= 0"));
 
     }
 }

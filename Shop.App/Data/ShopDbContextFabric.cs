@@ -14,11 +14,13 @@ public class ShopDbContextFabric : IDesignTimeDbContextFactory<ShopDbContext>
             .AddJsonFile("appsettings.json")
             .Build();
         
-        var connectionString = builder.GetConnectionString("DefaultConnection");
+        var connectionString = builder.GetConnectionString("MySQLConnection");
+        // var options = new DbContextOptionsBuilder<ShopDbContext>()
+        //     .UseSqlServer(connectionString)
+        //     .Options;
         var options = new DbContextOptionsBuilder<ShopDbContext>()
-            .UseSqlServer(connectionString)
+            .UseMySql(connectionString, ServerVersion.AutoDetect(connectionString))
             .Options;
-
         return new ShopDbContext(options);
     }
 }

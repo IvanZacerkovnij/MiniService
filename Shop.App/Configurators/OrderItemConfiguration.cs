@@ -18,10 +18,11 @@ public class OrderItemConfiguration : IEntityTypeConfiguration<OrderItem>
         builder
             .HasOne(oi => oi.Product)
             .WithMany(o => o.OrderItems)
-            .HasForeignKey(oi => oi.ProductId);
+            .HasForeignKey(oi => oi.ProductId)
+            .OnDelete(DeleteBehavior.Restrict);
         builder
             .ToTable(t =>
-                t.HasCheckConstraint("CK_Quantity", "[Quantity] > 0"));
+                t.HasCheckConstraint("CK_Quantity", "Quantity > 0"));
         builder
             .Property(oi => oi.Price)
             .HasPrecision(18, 2);

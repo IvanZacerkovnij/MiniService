@@ -22,6 +22,6 @@ public class OrderConfiguration : IEntityTypeConfiguration<Order>
             .HasPrecision(18, 2);
         builder
             .ToTable(t =>
-                t.HasCheckConstraint("CK_Status" , "[Status] BETWEEN 0 AND 2"));
+                t.HasCheckConstraint("CK_Status" , "Status BETWEEN 0 AND 2"));
     }
 }

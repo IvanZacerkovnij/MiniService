@@ -18,13 +18,13 @@ public class ConfigurationUser : IEntityTypeConfiguration<User>
             .IsRequired();
         builder
             .ToTable(t =>
-                t.HasCheckConstraint("CK_User", "[Role] BETWEEN 0 AND 3"));
+                t.HasCheckConstraint("CK_User", "Role BETWEEN 0 AND 3"));
         builder
             .ToTable(t =>
                 t.HasCheckConstraint("CK_UserSurname",
-                    "LEN(LTRIM(Surname)) > 0"));
+                    "CHAR_LENGTH(TRIM(Surname)) > 0"));
         builder
             .Property(u => u.CreatedAt)
-            .HasDefaultValueSql("SYSDATETIME()");
+            .HasDefaultValueSql("CURRENT_TIMESTAMP(6)");
     }
 }

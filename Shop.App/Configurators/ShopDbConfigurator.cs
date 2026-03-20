@@ -12,7 +12,8 @@ public static class ShopDbConfigurator
             .AddJsonFile("appsettings.json")
             .Build();
         
-        var connectionString = builder.GetConnectionString("DefaultConnection");
-        options.UseSqlServer(connectionString);
+        var connectionString = builder.GetConnectionString("MySQLConnection");
+        options.UseMySql(connectionString, ServerVersion.AutoDetect(connectionString));
+        // options.UseSqlServer(connectionString);
     }
 }
